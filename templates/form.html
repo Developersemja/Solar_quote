@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Quote</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+                max-width: 100%;
+            }
+
+            input[type="submit"] {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Update Quotation</h1>
+    <form action="/generate_quote" method="POST">
+        <div class="form-group">
+            <label for="client_name">Client Name:</label>
+            <input type="text" id="client_name" name="client_name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="client_address">Client Address:</label>
+            <input type="text" id="client_address" name="client_address" required>
+        </div>
+
+        <div class="form-group">
+            <label for="client_number">Client Number:</label>
+            <input type="tel" id="client_number" name="client_number" required>
+        </div>
+
+        <div class="form-group">
+            <label for="client_email">Client Email:</label>
+            <input type="email" id="client_email" name="client_email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="client_eb_no">Client Eb no:</label>
+            <input type="text" id="client_eb_no" name="client_eb_no" required>
+        </div>
+
+        <div class="form-group">
+            <label for="project_name">Project Name:</label>
+            <input type="text" id="project_name" name="project_name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="project_details">Project Details:</label>
+            <textarea id="project_details" name="project_details" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="project_power_kw">Project Power (KW):</label>
+            <input type="number" id="project_power_kw" name="project_power_kw" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Project_Phase">Project Phase:</label>
+            <input type="text" id="Project_Phase" name="Project_Phase" required>
+        </div>
+
+        <div class="form-group">
+            <label for="on_grid_off_grid">On-grid / Off-grid:</label>
+            <input type="text" id="on_grid_off_grid" name="on_grid_off_grid" required>
+        </div>
+
+        <!-- Equipment Section -->
+
+        <div class="form-group">
+            <label for="Solar_PV_module">Solar PV Module (WP):</label>
+            <input type="number" id="Solar_PV_module" name="Solar_PV_module" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Solar_PV_module_no">Solar PV Module (No):</label>
+            <input type="number" id="Solar_PV_module_no" name="Solar_PV_module_no" required>
+        </div>
+
+        <div class="form-group">
+            <label for="RCC/GI:Lot">Module Mounting Structure RCC/GI (Lot):</label>
+            <input type="number" id="RCC/GI:Lot" name="RCC/GI:Lot" required>
+        </div>
+
+        <div class="form-group">
+            <label for="SPD_TYPE">SPD Type II:</label>
+            <input type="number" id="SPD_TYPE" name="SPD_TYPE" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Solar_Inverter">Solar Inverter:</label>
+            <input type="number" id="Solar_Inverter" name="Solar_Inverter" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ACDB_with_SPD">ACDB with SPD 1ph:</label>
+            <input type="number" id="ACDB_with_SPD" name="ACDB_with_SPD" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Cu_cable">1C X 4 Sq.mm. EB XLPE Cu. Cable:</label>
+            <input type="number" id="Cu_cable" name="Cu_cable" required>
+        </div>
+
+        <div class="form-group">
+            <label for="5sqmm_Cu_cable">3CX2.5sqmm Cu Cable:</label>
+            <input type="number" id="5sqmm_Cu_cable" name="5sqmm_Cu_cable" required>
+        </div>
+
+        <div class="form-group">
+            <label for="copper_B">Earthing Kit (Copper B):</label>
+            <input type="number" id="copper_B" name="copper_B" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Earth_cable">Earth Cable (AL 1CX10 sq mm):</label>
+            <input type="number" id="Earth_cable" name="Earth_cable" required>
+        </div>
+
+        <div class="form-group">
+            <label for="LIGHTENING_ARRESTOR">Lightning Arrestor (2 M):</label>
+            <input type="number" id="LIGHTENING_ARRESTOR" name="LIGHTENING_ARRESTOR" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Installation_kit">Installation Kit:</label>
+            <input type="number" id="Installation_kit" name="Installation_kit" required>
+        </div>
+
+        <div class="form-group">
+            <label for="MC_4_Cable">MC-4 Cable Couplers:</label>
+            <input type="number" id="MC_4_Cable" name="MC_4_Cable" required>
+        </div>
+
+        <div class="form-group">
+            <label for="total_cost">Total Cost:</label>
+            <input type="number" id="total_cost" name="total_cost" required>
+        </div>
+
+        <input type="submit" value="Generate Quote">
+    </form>
+</body>
+
+</html>
