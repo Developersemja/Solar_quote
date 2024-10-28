@@ -41,7 +41,7 @@ def generate_quote():
     MC_4_Cable = request.form['MC_4_Cable']
 
     # Generate an invoice number
-    invoice_number = f"R{str(len(os.listdir()) + 1).zfill(3)}"
+    invoice_number = f"{str(len(os.listdir()) + 1).zfill(3)}"
 
     doc = Document(WORD_TEMPLATE)
     
